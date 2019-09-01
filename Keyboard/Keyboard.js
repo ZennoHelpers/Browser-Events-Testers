@@ -1,11 +1,11 @@
 'use strict';
 
-let input = document.getElementById('input');
-let table = document.getElementById('table');
-let tBody = table.createTBody();
+const input = document.getElementById('input');
+const table = document.getElementById('table');
+const tBody = table.createTBody();
 
-let types = ['keydown', 'keypress', 'keyup', 'textInput', 'beforeInput', 'input', 'compositionstart', 'compositionupdate', 'compositionend'];
-let evProps = ['timeStamp', 'type', 'isTrusted', 'key', 'charCode', 'keyCode', 'which', 'code',/*'keyIdentifier', 'keyLocation', 'char',*/ 'shiftKey', 'ctrlKey', 'altKey', 'metaKey', 'location', 'repeat', 'eventPhase'];
+const types = ['keydown', 'keypress', 'keyup', 'textInput', 'beforeInput', 'input', 'compositionstart', 'compositionupdate', 'compositionend'];
+const evProps = ['timeStamp', 'type', 'isTrusted', 'key', 'charCode', 'keyCode', 'which', 'code',/*'keyIdentifier', 'keyLocation', 'char',*/ 'shiftKey', 'ctrlKey', 'altKey', 'metaKey', 'location', 'repeat', 'eventPhase'];
 
 init();
 
@@ -18,16 +18,16 @@ function init() {
 }
 
 function createTableHeader() {
-  let tHead = table.createTHead();
-  let tHeadRow = tHead.insertRow(-1);
+  const tHead = table.createTHead();
+  const tHeadRow = tHead.insertRow(-1);
   
-  for (let prop of evProps) {
+  for (const prop of evProps) {
     createCellWithData(tHeadRow, prop);
   }
 }
 
 function onEvent(e) {
-  let eventinfo = [];
+  const eventinfo = [];
   
   for (const type of evProps) {
     eventinfo.push({Name: type, Value: eval('e.' + type)});
@@ -36,9 +36,9 @@ function onEvent(e) {
 }
 
 function showEventData(eventinfo) {
-  let row = tBody.insertRow(0);
+  const row = tBody.insertRow(0);
   
-  for (let eInfo of eventinfo) {
+  for (const eInfo of eventinfo) {
     let name = eInfo.Name;
     let value = eInfo.Value;
     
@@ -61,7 +61,7 @@ function showEventData(eventinfo) {
 }
 
 function createCellWithData(row, value) {
-  let cell = row.insertCell(-1);
+  const cell = row.insertCell(-1);
   cell.innerHTML = value;
 }
 

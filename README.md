@@ -1,3 +1,4 @@
-https://zymlex.github.io/Browser-Events-Testers/Keyboard/KeyboardTester.html
+https://zymlex.github.io/Browser-Events-Testers
 
-https://zymlex.github.io/Browser-Events-Testers/Mouse/Mouse.html
+Известная проблема:
+В Firefox, canvas после некоторой прокрутки, перестаёт отрисовывать линию Y координаты.

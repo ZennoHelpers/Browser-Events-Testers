@@ -4,29 +4,33 @@
   <meta charset="UTF-8">
   <meta name="author" content="Zymlex">
   <title>Mouse Events Tester</title>
-  <link rel="stylesheet" href="Mouse.css">
+  <link rel="stylesheet" href="../Global.css">
 </head>
 <body id="target">
 
-<h2 align="center">Mouse Events</h2>
+<h2>Mouse Events</h2>
 
 <form>
-  <p align="center">
+  <p>
     <button type="reset" onclick="clearTable();">Clear table</button>
     <label>
       <input id="logcheckbox" type="checkbox"> Enable log.
     </label>
+    <label>
+      <input id="canvaslinescheckbox" type="checkbox"> Enable canvas lines.
+    </label>
   </p>
-  <p align="center">▫ - null, <span class="green">✓</span> - true, <span class="red">✗</span> - false</p>
+  <p>▫ - null, <span class="green">✓</span> - true, <span class="red">✗</span> - false</p>
 </form>
 
 <noscript>
-  <h1 align="center">JavaScript отключен!</h1>
+  <h1>JavaScript отключен!</h1>
 </noscript>
 
-<table id="table" align="center">
+<table id="table">
 </table>
 
 </body>
 <script src="Mouse.js"></script>
+<script src="CanvasLines.js"></script>
 </html>

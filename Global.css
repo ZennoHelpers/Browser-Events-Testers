@@ -1,31 +1,32 @@
 body {
   background-color: darkslategray;
-  color: whitesmoke
+  color: whitesmoke;
+  text-align: center;
 }
 
 textarea {
-  background-color: whitesmoke
+  background-color: whitesmoke;
 }
 
 form {
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 table {
-  text-align: center
+  margin: 0 auto;
 }
 
 thead > tr > td {
   padding: 0 5px;
   font-weight: bold;
   border-collapse: collapse;
-  border-bottom: 1px dashed #aaa
+  border-bottom: 1px dashed #aaa;
 }
 
 span.green {
-  color: lightgreen
+  color: lightgreen;
 }
 
 span.red {
-  color: red
+  color: red;
 }

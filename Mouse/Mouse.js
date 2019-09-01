@@ -1,12 +1,12 @@
 'use strict';
 
-let table = document.getElementById('table');
-let tBody = table.createTBody();
+const table = document.getElementById('table');
+const tBody = table.createTBody();
 
-let eTypes = ['click', 'dblclick', 'mousedown', 'mouseenter', 'mouseleave', 'mousemove', 'mouseout', 'mouseover', 'mouseup'];
-let eProps = ['timeStamp', 'type', 'isTrusted', 'button', 'clientX', 'clientY', 'pageX', 'pageY', 'movementX', 'movementY', /*'shiftKey', 'ctrlKey', 'altKey', 'metaKey',*/ 'relatedTarget', 'eventPhase'];
+const eTypes = ['click', 'dblclick', 'mousedown', 'mouseenter', 'mouseleave', 'mousemove', 'mouseout', 'mouseover', 'mouseup'];
+const eProps = ['timeStamp', 'type', 'isTrusted', 'button', 'clientX', 'clientY', 'pageX', 'pageY', 'movementX', 'movementY', /*'shiftKey', 'ctrlKey', 'altKey', 'metaKey',*/ 'relatedTarget', 'eventPhase'];
 
-let target = document.getElementById('target');
+const target = document.getElementById('target');
 
 init();
 
@@ -19,31 +19,31 @@ function init() {
 }
 
 function createTableHeader() {
-  let tHead = table.createTHead();
-  let tHeadRow = tHead.insertRow(-1);
+  const tHead = table.createTHead();
+  const tHeadRow = tHead.insertRow(-1);
   
-  for (let prop of eProps) {
+  for (const prop of eProps) {
     createCellWithData(tHeadRow, prop);
   }
 }
 
 function onEvent(e) {
-  let eventinfo = [];
+  const eventinfo = [];
   
   for (const type of eProps) {
     eventinfo.push({Name: type, Value: eval('e.' + type)});
   }
   
-  let logCheckBox = document.getElementById('logcheckbox');
+  const logCheckBox = document.getElementById('logcheckbox');
   if(logCheckBox.checked) {
     showEventData(eventinfo);
   }
 }
 
 function showEventData(eventinfo) {
-  let row = tBody.insertRow(0);
+  const row = tBody.insertRow(0);
   
-  for (let eInfo of eventinfo) {
+  for (const eInfo of eventinfo) {
     let name = eInfo.Name;
     let value = eInfo.Value;
     
@@ -60,7 +60,7 @@ function showEventData(eventinfo) {
 }
 
 function createCellWithData(row, value) {
-  let cell = row.insertCell(-1);
+  const cell = row.insertCell(-1);
   cell.innerHTML = value;
 }
 
