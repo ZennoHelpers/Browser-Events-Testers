@@ -1,6 +1,7 @@
 'use strict';
 
-let ctx;
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
 const MaxNum = Number.MAX_SAFE_INTEGER;
 
 init();
@@ -13,15 +14,12 @@ function init() {
 
 function createField() {
 
-  const canvas = document.createElement('canvas');
   document.body.appendChild(canvas);
   const bodyClientRect = document.body.getBoundingClientRect();
 
   canvas.style.cssText = 'pointer-events:none; position: absolute; left: 0px; top: 0px;';
   canvas.width = bodyClientRect.right;
   canvas.height = bodyClientRect.bottom;
-
-  ctx = canvas.getContext('2d');
 
   onElementRectChange(document.body, function (height, width) {
     ctx.canvas.height = height;
@@ -42,9 +40,9 @@ function drawGrid(minX, maxX, minY, maxY, color) {
 function drawLine(isX, valueStr, color) {
 
   const moveToX = isX ? valueStr : 0;
-  const lineToX = isX ? valueStr : MaxNum;
+  const lineToX = isX ? valueStr : canvas.width;
   const moveToY = isX ? 0 : valueStr;
-  const lineToY = isX ? MaxNum : valueStr;
+  const lineToY = isX ? canvas.height : valueStr;
 
   ctx.beginPath();
   ctx.moveTo(moveToX, moveToY);
@@ -55,7 +53,7 @@ function drawLine(isX, valueStr, color) {
 }
 
 function clearField() {
-  ctx.clearRect(0, 0, MaxNum, MaxNum);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 function initElementLines() {
@@ -93,7 +91,7 @@ function initCursoreLine() {
 function drawCursoreLine(e){
 
   // let path = new Path2D();
-  ctx.lineTo(e.clientX, e.clientY);
+  ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop); //TODO: Добавить смещение при прокрутке
   ctx.strokeStyle = '#ffff00';
   ctx.stroke();
 
