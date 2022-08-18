@@ -1,4 +1,4 @@
 https://ZennoHelpers.github.io/Browser-Events-Testers/
 
-Известная проблема:
-В Firefox, canvas после некоторой прокрутки, перестаёт отрисовывать линию Y координаты.
+Known issue:
+In Firefox, canvas stops drawing the Y coordinate line after some scrolling.
